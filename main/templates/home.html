@@ -1,10 +1,14 @@
+{% extends 'base.html' %}
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>My Portfolio</title>
-</head>
-<body>
-    <h1>Hello, I'm a Django Developer </h1>
-</body>
-</html>
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <h1 class="display-4">Hi There, I'm Gowtham N 👋</h1>
+    <p class="lead">Python Developer | Web Developer | Learner</p>
+
+    <button id="hireBtn" class="btn btn-primary btn-lg mt-3">
+        Hire Me
+    </button>
+</div>
+{% endblock %}
