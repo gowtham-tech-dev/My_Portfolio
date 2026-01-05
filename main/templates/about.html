@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}About Me{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row mb-4">
+        <div class="col text-center">
+            <h2 class="fw-bold">About Me</h2>
+            <p class="text-muted mt-2">
+                A motivated Django developer focused on building clean, scalable, and user-friendly web applications.
+            </p>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <!-- Profile Summary Card -->
+        <div class="col-md-12">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <i class="fas fa-user-circle me-2 text-primary"></i>Profile
+                    </h5>
+                    <p class="card-text">
+                        I am a passionate web developer with a strong foundation in Python and Django.
+                        I enjoy transforming ideas into functional, responsive, and visually appealing web solutions.
+                        I continuously improve my skills by building projects and exploring modern web technologies.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills Card -->
+        <div class="col-md-6">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <i class="fas fa-code me-2 text-success"></i>Technical Skills
+                    </h5>
+                    <ul class="list-unstyled mt-3">
+                        <li><i class="fas fa-check-circle text-success me-2"></i>Python & Django</li>
+                        <li><i class="fas fa-check-circle text-success me-2"></i>HTML, CSS, JavaScript</li>
+                        <li><i class="fas fa-check-circle text-success me-2"></i>Bootstrap & jQuery</li>
+                        <li><i class="fas fa-check-circle text-success me-2"></i>SQLite & MySQL</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tools Card -->
+        <div class="col-md-6">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <i class="fas fa-tools me-2 text-warning"></i>Tools & Workflow
+                    </h5>
+                    <ul class="list-unstyled mt-3">
+                        <li><i class="fab fa-git-alt text-dark me-2"></i>Git & GitHub</li>
+                        <li><i class="fas fa-laptop-code me-2 text-secondary"></i>PyCharm</li>
+                        <li><i class="fas fa-code me-2 text-secondary"></i>Visual Studio Code</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}My Projects{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row mb-4">
+        <div class="col text-center">
+            <h2 class="fw-bold">Projects</h2>
+            <p class="text-muted">
+                Real-world projects demonstrating backend development, database management, and responsive UI design.
+            </p>
+        </div>
+    </div>
+
+    <div class="row g-4">
+
+        <!-- Project 1 -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow-sm h-100">
+                <img src="{% static 'main/images/banking.jpg' %}" class="card-img-top" alt="Banking Management System">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <i class="fas fa-university text-primary me-2"></i>
+                        Banking Management System
+                    </h5>
+
+                    <p class="card-text mt-2">
+                        Developed a secure Django-based system to manage banking operations including accounts,
+                        transactions, and user authentication.
+                    </p>
+
+                    <div class="mb-3">
+                        <span class="badge bg-primary">Django</span>
+                        <span class="badge bg-secondary">Python</span>
+                        <span class="badge bg-success">SQLite</span>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <a href="https://github.com/gowtham-tech-dev/Banking-Management-System" target="_blank" class="btn btn-outline-dark btn-sm">
+                            <i class="fab fa-github me-1"></i> GitHub
+                        </a>
+                        <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#bankModal">
+                            <i class="fas fa-info-circle me-1"></i> Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow-sm h-100">
+                <img src="{% static 'main/images/ecommerce.jpg' %}" class="card-img-top" alt="E-commerce Website">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <i class="fas fa-shopping-cart text-success me-2"></i>
+                        Pantaloons E-commerce Website (Replica)
+                    </h5>
+
+                    <p class="card-text mt-2">
+                        Built a responsive front-end replica of an e-commerce platform focusing on UI,
+                        layout consistency, and user experience.
+                    </p>
+
+                    <div class="mb-3">
+                        <span class="badge bg-warning text-dark">HTML</span>
+                        <span class="badge bg-info">CSS</span>
+                        <span class="badge bg-dark">JavaScript</span>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <a href="https://github.com/gowtham-tech-dev/Pantaloons_replica_website" target="_blank" class="btn btn-outline-dark btn-sm">
+                            <i class="fab fa-github me-1"></i> GitHub
+                        </a>
+                        <button class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#ecomModal">
+                            <i class="fas fa-info-circle me-1"></i> Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- ================= Details ================= -->
+
+<!-- Banking Project Modal -->
+<div class="modal fade" id="bankModal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Banking Management System</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <ul>
+                    <li>Designed and implemented user authentication and role-based access control.</li>
+                    <li>Managed account creation, balance tracking, and transaction history.</li>
+                    <li>Integrated SQLite database with Django ORM.</li>
+                    <li>Focused on clean UI and maintainable backend architecture.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- E-commerce Project Modal -->
+<div class="modal fade" id="ecomModal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Pantaloons E-commerce Website</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <ul>
+                    <li>Created responsive layouts using Bootstrap and custom CSS.</li>
+                    <li>Implemented navigation, product listings, and UI components.</li>
+                    <li>Focused on pixel-perfect design and mobile responsiveness.</li>
+                    <li>Improved front-end development and UX design skills.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

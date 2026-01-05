@@ -1,14 +1,21 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<div class="text-center">
+<div class="text-center p-5 bg-light rounded">
     <h1 class="display-4">Hi There, I'm Gowtham N 👋</h1>
     <p class="lead">Python Developer | Web Developer | Learner</p>
+     
 
     <button id="hireBtn" class="btn btn-primary btn-lg mt-3">
         Hire Me
     </button>
+   
 </div>
+
+ <a href="{% static 'main/Gowtham_N_Software_Developer.pdf' %}" class="btn btn-outline-secondary btn-lg ms-2" download>
+            Download Resume
+        </a>
 {% endblock %}
