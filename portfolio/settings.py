@@ -133,3 +133,6 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'gowthamnedunchezian05@gmail.com'
 EMAIL_HOST_PASSWORD = 'rotk zaer pwls pyus'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+#Media
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.core.mail import send_mail
 from django.conf import settings
 from .forms import ContactForm
+from .models import Project
 from django.contrib import messages
 
    
@@ -12,8 +13,10 @@ def home(request):
 def about(request):
     return render(request, 'about.html')
 
+
 def projects(request):
-    return render(request, 'projects.html')
+    projects = Project.objects.all()
+    return render(request, 'projects.html', {'projects': projects})
 
 
 def contact(request):

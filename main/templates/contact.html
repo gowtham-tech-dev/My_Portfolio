@@ -27,28 +27,28 @@
   {% endfor %}
 {% endif %}
                     <form method="post">
-                         {% csrf_token %}
-                          {{ form.non_field_errors }}
+                        {% csrf_token %}
+                        {{ form.non_field_errors }}
 
                      <div class="mb-3">
-                         {{ form.name.label_tag }}
-                            <i class="fas fa-user me-2"></i>
-                            {{ form.name }}
-                            {{ form.name.errors }}
+                        <i class="fas fa-user me-2"></i>
+                        {{ form.name.label_tag }}
+                        {{ form.name }}
+                        {{ form.name.errors }}
                      </div>
 
                      <div class="mb-3">
+                        <i class="fas fa-envelope me-2"></i>
                         {{ form.email.label_tag }}
-                            <i class="fas fa-envelope me-2"></i>
-                            {{ form.email }}
-                            {{ form.email.errors }}
+                        {{ form.email }}
+                        {{ form.email.errors }}
                      </div>
 
                      <div class="mb-3">
+                        <i class="fas fa-comment-dots me-2"></i>
                         {{ form.message.label_tag }}
-                            <i class="fas fa-comment-dots me-2"></i>
-                            {{ form.message }}
-                            {{ form.message.errors }}
+                        {{ form.message }}
+                        {{ form.message.errors }}
                     </div>
 
                      <button type="submit" class="btn btn-primary w-100">
