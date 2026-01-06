@@ -18,34 +18,45 @@
         <div class="col-md-8">
             <div class="card shadow-sm">
                 <div class="card-body">
+                    {% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  {% endfor %}
+{% endif %}
                     <form method="post">
-                        {% csrf_token %}
-                        
-                        <div class="mb-3">
-                            <label for="name" class="form-label">
-                                <i class="fas fa-user me-2"></i>Name
-                            </label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
-                        </div>
+                         {% csrf_token %}
+                          {{ form.non_field_errors }}
 
-                        <div class="mb-3">
-                            <label for="email" class="form-label">
-                                <i class="fas fa-envelope me-2"></i>Email
-                            </label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="your.email@example.com" required>
-                        </div>
+                     <div class="mb-3">
+                         {{ form.name.label_tag }}
+                            <i class="fas fa-user me-2"></i>
+                            {{ form.name }}
+                            {{ form.name.errors }}
+                     </div>
 
-                        <div class="mb-3">
-                            <label for="message" class="form-label">
-                                <i class="fas fa-comment-dots me-2"></i>Message
-                            </label>
-                            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
-                        </div>
+                     <div class="mb-3">
+                        {{ form.email.label_tag }}
+                            <i class="fas fa-envelope me-2"></i>
+                            {{ form.email }}
+                            {{ form.email.errors }}
+                     </div>
 
-                        <button type="submit" class="btn btn-primary w-100">
-                            <i class="fas fa-paper-plane me-1"></i> Send Message
-                        </button>
+                     <div class="mb-3">
+                        {{ form.message.label_tag }}
+                            <i class="fas fa-comment-dots me-2"></i>
+                            {{ form.message }}
+                            {{ form.message.errors }}
+                    </div>
+
+                     <button type="submit" class="btn btn-primary w-100">
+                         <i class="fas fa-paper-plane me-1"></i> Send Message
+                         </button>
                     </form>
+
+                
 
                     <hr class="my-4">
 
