@@ -1,3 +1,4 @@
+import ScrollProgress from "./components/ScrollProgress"
 import Navbar from "./components/Navbar"
 import Hero from "./components/Hero"
 import About from "./components/About"
@@ -8,7 +9,8 @@ import Footer from "./components/Footer"
 
 function App() {
   return (
-    <div className="bg-slate-950 text-white min-h-screen">
+    <div className="bg-gradient-to-b from-slate-950 via-slate-900 to-black text-white min-h-screen">
+      <ScrollProgress />
       <Navbar />
       <Hero />
       <About />

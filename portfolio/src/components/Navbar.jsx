@@ -1,6 +1,10 @@
+import { useState } from "react"
 import { Link } from "react-scroll"
+import { FaBars, FaTimes } from "react-icons/fa"
 
 function Navbar() {
+
+  const [menuOpen, setMenuOpen] = useState(false)
 
   const navItems = [
     "home",
@@ -20,7 +24,7 @@ function Navbar() {
           Gowtham N
         </h1>
 
-        {/* MENU */}
+        {/* DESKTOP MENU */}
         <ul className="hidden md:flex gap-8 text-lg capitalize">
 
           {navItems.map((item) => (
@@ -45,7 +49,49 @@ function Navbar() {
 
         </ul>
 
+        {/* MOBILE MENU BUTTON */}
+        <div
+          className="md:hidden text-2xl cursor-pointer"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+
+          {menuOpen ? <FaTimes /> : <FaBars />}
+
+        </div>
+
       </div>
+
+      {/* MOBILE MENU */}
+      {menuOpen && (
+
+        <div className="md:hidden bg-slate-900 px-8 pb-6">
+
+          <ul className="flex flex-col gap-6 text-lg capitalize">
+
+            {navItems.map((item) => (
+
+              <li key={item}>
+
+                <Link
+                  to={item}
+                  smooth={true}
+                  duration={500}
+                  offset={-70}
+                  onClick={() => setMenuOpen(false)}
+                  className="cursor-pointer hover:text-blue-400 transition"
+                >
+                  {item}
+                </Link>
+
+              </li>
+
+            ))}
+
+          </ul>
+
+        </div>
+
+      )}
 
     </nav>
   )
