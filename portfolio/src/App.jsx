@@ -1,4 +1,5 @@
 import ScrollProgress from "./components/ScrollProgress"
+import ParticlesBackground from "./components/ParticlesBackground"
 import Navbar from "./components/Navbar"
 import Hero from "./components/Hero"
 import About from "./components/About"
@@ -10,6 +11,7 @@ import Footer from "./components/Footer"
 function App() {
   return (
     <div className="bg-gradient-to-b from-slate-950 via-slate-900 to-black text-white min-h-screen">
+      <ParticlesBackground />
       <ScrollProgress />
       <Navbar />
       <Hero />
