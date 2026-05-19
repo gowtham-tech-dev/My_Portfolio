@@ -1,18 +1,51 @@
+import { Link } from "react-scroll"
+
 function Navbar() {
+
+  const navItems = [
+    "home",
+    "about",
+    "skills",
+    "projects",
+    "contact",
+  ]
+
   return (
-    <nav className="flex justify-between items-center px-8 py-5 bg-slate-900 sticky top-0">
+    <nav className="fixed w-full bg-slate-900/80 backdrop-blur-md text-white z-50 shadow-lg">
 
-      <h1 className="text-2xl font-bold text-blue-500">
-        Gowtham N
-      </h1>
+      <div className="max-w-7xl mx-auto flex justify-between items-center px-8 py-5">
 
-      <ul className="flex gap-6 text-lg">
-        <li className="hover:text-blue-400 cursor-pointer">Home</li>
-        <li className="hover:text-blue-400 cursor-pointer">About</li>
-        <li className="hover:text-blue-400 cursor-pointer">Skills</li>
-        <li className="hover:text-blue-400 cursor-pointer">Projects</li>
-        <li className="hover:text-blue-400 cursor-pointer">Contact</li>
-      </ul>
+        {/* LOGO */}
+        <h1 className="text-2xl font-bold text-blue-500">
+          Gowtham N
+        </h1>
+
+        {/* MENU */}
+        <ul className="hidden md:flex gap-8 text-lg capitalize">
+
+          {navItems.map((item) => (
+
+            <li key={item}>
+
+              <Link
+                to={item}
+                smooth={true}
+                duration={500}
+                spy={true}
+                offset={-70}
+                activeClass="text-blue-500"
+                className="cursor-pointer hover:text-blue-400 transition"
+              >
+                {item}
+              </Link>
+
+            </li>
+
+          ))}
+
+        </ul>
+
+      </div>
 
     </nav>
   )

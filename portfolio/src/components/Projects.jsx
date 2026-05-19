@@ -52,7 +52,10 @@ function Projects() {
   ]
 
   return (
-    <section className="bg-slate-900 text-white py-24 px-6">
+    <section
+  id="projects"
+  className="bg-slate-900 text-white py-24 px-6"
+>
 
       <div className="max-w-7xl mx-auto">
 

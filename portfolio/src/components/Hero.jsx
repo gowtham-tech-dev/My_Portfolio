@@ -1,10 +1,20 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa"
+import { TypeAnimation } from "react-type-animation"
+import { motion } from "framer-motion"
 
 function Hero() {
   return (
-    <section className="min-h-screen bg-slate-950 text-white flex items-center justify-center px-6">
+    <section
+  id="home"
+  className="min-h-screen bg-slate-950 text-white flex items-center justify-center px-6"
+>
 
-      <div className="max-w-7xl w-full grid md:grid-cols-2 gap-10 items-center">
+      <motion.div
+  initial={{ opacity: 0, y: 50 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 1 }}
+  className="max-w-7xl w-full grid md:grid-cols-2 gap-10 items-center"
+>
 
         {/* LEFT SIDE */}
         <div>
@@ -17,9 +27,20 @@ function Hero() {
             Gowtham N
           </h1>
 
-          <h2 className="text-2xl md:text-3xl text-gray-400 mb-6">
-            React Developer | Python Developer
-          </h2>
+          <TypeAnimation
+  sequence={[
+    "React Developer",
+    2000,
+    "Python Developer",
+    2000,
+    "Full Stack Developer",
+    2000,
+  ]}
+  wrapper="h2"
+  speed={50}
+  repeat={Infinity}
+  className="text-2xl md:text-3xl text-gray-400 mb-6"
+/>
 
           <p className="text-gray-500 max-w-lg mb-8 leading-7">
             Passionate about building modern web applications,
@@ -30,15 +51,23 @@ function Hero() {
           {/* BUTTONS */}
           <div className="flex gap-4 flex-wrap">
 
-            <button className="bg-blue-600 hover:bg-blue-700 px-7 py-3 rounded-xl font-semibold transition">
-              View Projects
-            </button>
+  <button className="bg-blue-600 hover:bg-blue-700 px-7 py-3 rounded-xl font-semibold transition">
+    View Projects
+  </button>
 
-            <button className="border border-blue-500 hover:bg-blue-500 px-7 py-3 rounded-xl font-semibold transition">
-              Contact Me
-            </button>
+  <button className="border border-blue-500 hover:bg-blue-500 px-7 py-3 rounded-xl font-semibold transition">
+    Contact Me
+  </button>
 
-          </div>
+  <a
+    href="/resume.pdf"
+    download
+    className="bg-green-600 hover:bg-green-700 px-7 py-3 rounded-xl font-semibold transition"
+  >
+    Download Resume
+  </a>
+
+</div>
 
           {/* SOCIAL ICONS */}
           <div className="flex gap-5 mt-8 text-3xl">
@@ -72,7 +101,7 @@ function Hero() {
 
         </div>
 
-      </div>
+      </motion.div>
 
     </section>
   )
