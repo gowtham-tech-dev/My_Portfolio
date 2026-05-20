@@ -1,112 +1,75 @@
 import { motion } from "framer-motion"
 
 function About() {
+  const stats = [
+    {
+      number: "6+",
+      label: "Months Experience",
+    },
+    {
+      number: "5+",
+      label: "Projects Built",
+    },
+    {
+      number: "React",
+      label: "Frontend Dev",
+    },
+    {
+      number: "Python",
+      label: "Backend Dev",
+    }
+  ]
+
   return (
     <section
-  id="about"
-  className="bg-slate-900 text-white py-24 px-6"
->
-
-      <motion.div
-  initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8 }}
-  viewport={{ once: true }}
-  className="max-w-6xl mx-auto"
->
-
+      id="about"
+      className="bg-[#112e42] text-white py-24 px-6 md:px-12 relative overflow-hidden"
+    >
+      <div className="max-w-6xl mx-auto z-10 relative">
         {/* TITLE */}
-        <div className="text-center mb-16">
-
-          <h1 className="text-5xl font-bold mb-4">
-            About Me
+        <div className="text-center mb-20">
+          <h1 className="text-4xl md:text-5xl font-black mb-4 font-sans tracking-wide text-white">
+            ABOUT <span className="text-[#00abf0]">ME</span>
           </h1>
-
-          <div className="w-24 h-1 bg-blue-500 mx-auto rounded"></div>
-
+          <div className="w-24 h-1 bg-[#00abf0] mx-auto rounded shadow-[0_0_10px_#00abf0]" />
         </div>
 
         {/* CONTENT */}
         <div className="grid md:grid-cols-2 gap-12 items-center">
-
           {/* LEFT */}
-          <div>
-
-            <h2 className="text-3xl font-semibold mb-6 text-blue-400">
+          <div className="text-left space-y-6">
+            <h2 className="text-2xl md:text-3xl font-bold font-sans text-[#00abf0] tracking-wide">
               Junior Software Developer
             </h2>
 
-            <p className="text-gray-400 leading-8 mb-6">
-              I'm Gowtham N, a passionate developer interested in
-              building modern web applications and full stack projects.
-              I enjoy learning new technologies and creating real-world
-              applications using React, Python, Django, and TailwindCSS.
+            <p className="text-gray-300 leading-relaxed text-base md:text-lg">
+              I'm Gowtham N, a passionate developer interested in building modern web applications and full stack projects. I enjoy learning new technologies and creating real-world applications using React, Python, Django, and TailwindCSS.
             </p>
 
-            <p className="text-gray-400 leading-8">
-              Currently focusing on frontend development, backend APIs,
-              Office.js Excel Add-ins, and responsive UI design.
+            <p className="text-gray-300 leading-relaxed text-base md:text-lg">
+              Currently focusing on frontend development, backend APIs, Office.js Excel Add-ins, and responsive UI design.
             </p>
-
           </div>
 
           {/* RIGHT */}
           <div className="grid grid-cols-2 gap-6">
-
-            <div className="bg-slate-800 p-6 rounded-2xl shadow-lg hover:scale-105 transition">
-
-              <h1 className="text-4xl font-bold text-blue-500 mb-2">
-                5+
-              </h1>
-
-              <p className="text-gray-400">
-                Projects Built
-              </p>
-
-            </div>
-
-            <div className="bg-slate-800 p-6 rounded-2xl shadow-lg hover:scale-105 transition">
-
-              <h1 className="text-4xl font-bold text-blue-500 mb-2">
-                React
-              </h1>
-
-              <p className="text-gray-400">
-                Frontend Development
-              </p>
-
-            </div>
-
-            <div className="bg-slate-800 p-6 rounded-2xl shadow-lg hover:scale-105 transition">
-
-              <h1 className="text-4xl font-bold text-blue-500 mb-2">
-                Python
-              </h1>
-
-              <p className="text-gray-400">
-                Backend Development
-              </p>
-
-            </div>
-
-            <div className="bg-slate-800 p-6 rounded-2xl shadow-lg hover:scale-105 transition">
-
-              <h1 className="text-4xl font-bold text-blue-500 mb-2">
-                UI
-              </h1>
-
-              <p className="text-gray-400">
-                Modern Responsive Design
-              </p>
-
-            </div>
-
+            {stats.map((stat, index) => (
+              <motion.div
+                key={index}
+                whileHover={{ scale: 1.05, y: -4 }}
+                className="glass-panel-teal p-6 rounded-2xl text-center shadow-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,171,240,0.25)]"
+              >
+                <h3 className="text-3xl md:text-4xl font-black font-sans mb-2 text-[#00abf0] text-glow-cyan">
+                  {stat.number}
+                </h3>
+                <p className="text-gray-300 font-medium text-sm md:text-base">
+                  {stat.label}
+                </p>
+              </motion.div>
+            ))}
           </div>
-
         </div>
-
-      </motion.div>
-
+      </div>
     </section>
   )
 }
