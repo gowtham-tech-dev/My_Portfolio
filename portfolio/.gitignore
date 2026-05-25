@@ -53,3 +53,6 @@ venv/
 
 # build files
 coverage/
+
+node_modules
+dist
