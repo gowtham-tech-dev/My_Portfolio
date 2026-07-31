@@ -1,0 +1,355 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Accent Colors ── */
+  --color-accent:        #8B5CF6;   /* primary violet */
+  --color-accent-light:  #A78BFA;
+  --color-accent-dark:   #6D28D9;
+  --color-accent-glow:   #C4B5FD;
+  
+  /* Cosmic Gold/Orange Accent from reference */
+  --color-cosmic-gold:   #ff7b00;
+  --color-cosmic-orange: #ff9100;
+
+  /* ── Alias for backward compat ── */
+  --color-neon-purple:       #8B5CF6;
+  --color-neon-purple-light: #A78BFA;
+  --color-neon-purple-dark:  #6D28D9;
+  --color-neon-accent:       #C4B5FD;
+
+  /* ── Background layers resolved from CSS vars ── */
+  --color-bg-primary:   var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-glass:     var(--bg-glass);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-border-glass: var(--border-glass);
+
+  /* ── Typography ── */
+  --font-sans:    "Inter", sans-serif;
+  --font-heading: "Space Grotesk", sans-serif;
+}
+
+/* ═══════════════════════════════════════════
+   ROOT / LIGHT MODE (Fallback)
+═══════════════════════════════════════════ */
+:root {
+  --bg-primary:    #f5f3f7;
+  --bg-secondary:  #ede9f2;
+  --bg-glass:      rgba(255,255,255,0.65);
+  --text-primary:  #0f172a;
+  --text-secondary:#475569;
+  --border-glass:  rgba(139,92,246,0.2);
+  color-scheme: light;
+}
+
+/* ═══════════════════════════════════════════
+   DARK MODE – Cosmic Space Theme
+═══════════════════════════════════════════ */
+:root[class~="dark"] {
+  --bg-primary:    #07020d;   /* deepest space black */
+  --bg-secondary:  #0b0416;   /* dark purple space */
+  --bg-card:       #110624;   /* cosmic card surface */
+  --bg-glass:      rgba(11, 4, 22, 0.65);
+  --text-primary:  #F8F5FF;   
+  --text-secondary:#B4A7C6;   /* muted lavender-gray per spec */
+  --border-glass:  rgba(139,92,246,0.18);
+  color-scheme: dark;
+}
+
+/* ═══════════════════════════════════════════
+   BASE RESET & COSMIC BACKGROUND
+═══════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  /* Starry Nebula background with radial overlays for readability */
+  background-image:
+    linear-gradient(180deg, rgba(7, 2, 13, 0.85) 0%, rgba(11, 4, 22, 0.9) 100%),
+    url('/space_nebula_bg.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #07020d; }
+::-webkit-scrollbar-thumb {
+  background: rgba(139,92,246,0.4);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover { background: #8B5CF6; }
+::selection { background: rgba(139,92,246,0.35); color: #F8F5FF; }
+
+/* ═══════════════════════════════════════════
+   GLOW UTILITIES
+═══════════════════════════════════════════ */
+.text-glow-purple {
+  text-shadow:
+    0 0 8px  rgba(139,92,246,0.9),
+    0 0 24px rgba(139,92,246,0.5),
+    0 0 48px rgba(139,92,246,0.25);
+}
+.text-glow-gold {
+  text-shadow:
+    0 0 8px  rgba(255,123,0,0.9),
+    0 0 24px rgba(255,123,0,0.5);
+}
+
+.box-glow-purple {
+  box-shadow:
+    0 0 16px rgba(139,92,246,0.35),
+    inset 0 0 8px rgba(139,92,246,0.12);
+}
+
+.bg-glow-radial {
+  background: radial-gradient(
+    ellipse 70% 60% at 50% 50%,
+    rgba(109,40,217,0.45) 0%,
+    rgba(139,92,246,0.15) 40%,
+    transparent 70%
+  );
+}
+
+/* ═══════════════════════════════════════════
+   GLASSMORPHISM
+═══════════════════════════════════════════ */
+.glass-panel {
+  background:        var(--bg-glass);
+  backdrop-filter:   blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border:            1px solid var(--border-glass);
+  box-shadow:        0 8px 32px rgba(0,0,0,0.35);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.glass-panel:hover {
+  border-color: rgba(139,92,246,0.45);
+  box-shadow:   0 8px 36px rgba(139,92,246,0.22);
+}
+
+.glass-card {
+  background:      rgba(17, 6, 36, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border:          1px solid rgba(139,92,246,0.15);
+  border-radius:   18px;
+  box-shadow:      0 4px 24px rgba(0,0,0,0.4);
+  transition: all 0.25s ease;
+}
+.glass-card:hover {
+  border-color: rgba(139,92,246,0.5);
+  box-shadow:
+    0 8px 40px rgba(139,92,246,0.2),
+    0 0 0 1px rgba(139,92,246,0.12);
+  transform: translateY(-4px);
+}
+
+/* ═══════════════════════════════════════════
+   BUTTONS
+═══════════════════════════════════════════ */
+.btn-primary {
+  background:    linear-gradient(135deg, #6D28D9, #8B5CF6);
+  color:         #ffffff;
+  border:        1px solid rgba(167,139,250,0.4);
+  box-shadow:    0 0 20px rgba(139,92,246,0.45);
+  font-family:   var(--font-heading);
+  font-weight:   600;
+  transition:    all 0.25s ease;
+  position:      relative;
+  overflow:      hidden;
+}
+.btn-primary:hover {
+  box-shadow: 0 0 32px rgba(139,92,246,0.7);
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #8B5CF6, #A78BFA);
+}
+
+/* Glowing gold variant from reference image */
+.btn-gold {
+  background:    linear-gradient(135deg, #ff7b00, #ffaa00);
+  color:         #ffffff;
+  border:        1px solid rgba(255,170,0,0.4);
+  box-shadow:    0 0 20px rgba(255,123,0,0.45);
+  font-family:   var(--font-heading);
+  font-weight:   600;
+  transition:    all 0.25s ease;
+}
+.btn-gold:hover {
+  box-shadow: 0 0 32px rgba(255,123,0,0.7);
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #ff9100, #ffc400);
+}
+
+.btn-outline {
+  background:    transparent;
+  color:         var(--text-primary);
+  border:        1px solid rgba(139,92,246,0.35);
+  backdrop-filter: blur(6px);
+  font-family:   var(--font-heading);
+  font-weight:   600;
+  transition:    all 0.25s ease;
+}
+.btn-outline:hover {
+  border-color: #8B5CF6;
+  color:         #A78BFA;
+  box-shadow:    0 0 18px rgba(139,92,246,0.35);
+  transform:     translateY(-2px);
+}
+
+.nav-pill {
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.4rem 1.1rem;
+  border-radius: 9999px;
+  color: var(--text-secondary);
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.nav-pill:hover { background: rgba(139,92,246,0.12); color: #A78BFA; }
+.nav-pill-active { background: rgba(139,92,246,0.15); color: #A78BFA; border-color: rgba(139,92,246,0.35); }
+
+.social-badge {
+  display:         inline-flex;
+  align-items:     center;
+  justify-content: center;
+  width:           44px;
+  height:          44px;
+  border:          1px solid var(--border-glass);
+  border-radius:   50%;
+  color:           var(--text-primary);
+  background:      var(--bg-glass);
+  backdrop-filter: blur(4px);
+  font-size:       20px;
+  transition:      all 0.25s ease;
+}
+.social-badge:hover {
+  border-color: #8B5CF6;
+  color:        #A78BFA;
+  box-shadow:   0 0 20px rgba(139,92,246,0.45);
+  transform:    translateY(-3px);
+}
+
+.skill-badge {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  background:      rgba(17, 6, 36, 0.85);
+  border:          1px solid rgba(139,92,246,0.25);
+  border-radius:   14px;
+  backdrop-filter: blur(12px);
+  transition:      all 0.25s ease;
+  cursor:          default;
+}
+.skill-badge:hover {
+  border-color: rgba(139,92,246,0.65);
+  box-shadow:   0 0 20px rgba(139,92,246,0.3);
+  transform:    scale(1.12);
+}
+
+/* ═══════════════════════════════════════════
+   BROWSER MOCKUP
+═══════════════════════════════════════════ */
+.browser-mockup {
+  border-radius: 16px; overflow: hidden;
+  border: 1px solid rgba(139,92,246,0.2);
+  box-shadow: 0 24px 64px rgba(0,0,0,0.6), 0 0 0 1px rgba(139,92,246,0.08);
+}
+.browser-bar {
+  background: rgba(17, 6, 36, 0.95);
+  padding: 10px 16px;
+  display: flex; align-items: center; gap: 6px;
+  border-bottom: 1px solid rgba(139,92,246,0.12);
+}
+.browser-dot { width: 11px; height: 11px; border-radius: 50%; }
+
+.section-overline {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-heading);
+  font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: #A78BFA;
+}
+.section-overline::before {
+  content: ''; display: block; width: 28px; height: 2px;
+  background: linear-gradient(90deg, #8B5CF6, #A78BFA); border-radius: 1px;
+}
+
+/* ═══════════════════════════════════════════
+   COSMIC & PLANET ANIMATIONS
+═══════════════════════════════════════════ */
+@keyframes float { 
+  0%, 100% { transform: translateY(0); } 
+  50% { transform: translateY(-12px); } 
+}
+@keyframes floatReverse { 
+  0%, 100% { transform: translateY(-8px); } 
+  50% { transform: translateY(4px); } 
+}
+@keyframes orbitSlow { 
+  from { transform: rotate(0deg); } 
+  to { transform: rotate(360deg); } 
+}
+@keyframes orbitSlowReverse { 
+  from { transform: rotate(360deg); } 
+  to { transform: rotate(0deg); } 
+}
+@keyframes pulseRing { 
+  0%, 100% { opacity: 0.3; transform: scale(1); } 
+  50% { opacity: 0.6; transform: scale(1.03); } 
+}
+
+/* Slow rotation for planetary surfaces */
+@keyframes planetRotation {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Shooting star / Comet transition animation */
+@keyframes cometFlight {
+  0% { transform: translate(300px, -300px) scale(0.2); opacity: 0; }
+  10% { opacity: 1; }
+  30% { transform: translate(-300px, 300px) scale(1); opacity: 0; }
+  100% { transform: translate(-300px, 300px) scale(1); opacity: 0; }
+}
+
+.animate-float         { animation: float 4s ease-in-out infinite; }
+.animate-float-reverse { animation: floatReverse 5s ease-in-out infinite; }
+.animate-orbit-slow    { animation: orbitSlow 30s linear infinite; }
+.animate-orbit-reverse { animation: orbitSlowReverse 45s linear infinite; }
+.animate-pulse-ring    { animation: pulseRing 3s ease-in-out infinite; }
+
+.animate-planet-rotation { animation: planetRotation 120s linear infinite; }
+.animate-comet { animation: cometFlight 9s ease-in infinite; }
+
+/* ── Orbiting Tech Stack System ── */
+.orbit-ring-1 {
+  animation: orbitSlow 35s linear infinite;
+}
+.orbit-counter-1 {
+  animation: orbitSlowReverse 35s linear infinite;
+}
+.orbit-ring-2 {
+  animation: orbitSlowReverse 45s linear infinite;
+}
+.orbit-counter-2 {
+  animation: orbitSlow 45s linear infinite;
+}
+
+/* Pause all orbit elements on hover */
+.orbit-system:hover .orbit-ring-1,
+.orbit-system:hover .orbit-counter-1,
+.orbit-system:hover .orbit-ring-2,
+.orbit-system:hover .orbit-counter-2 {
+  animation-play-state: paused;
+}
+
+#tsparticles { position: fixed !important; inset: 0; z-index: 0; pointer-events: none; }
